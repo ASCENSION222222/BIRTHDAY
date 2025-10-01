@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Zypher!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Comic+Sans+MS&display=swap');
+
+        body {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+background-color: #fff9e6;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pen-tool"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>'), auto;
+        }
+        .doodle-border {
+            border: 5px wavy #ff85a2;
+            border-radius: 30px 5px 30px 5px;
+            box-shadow: 8px 8px 0px rgba(255, 133, 162, 0.3);
+        }
+.typing {
+            border-right: 2px solid;
+            animation: blink 0.75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #ff85a2; }
+        }
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ff85a2;
+            opacity: 0.9;
+            border-radius: 50% 20% 50% 20%;
+            transform: rotate(45deg);
+        }
+
+        .wiggle {
+            animation: wiggle 0.5s infinite alternate;
+        }
+
+        @keyframes wiggle {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        .rainbow-text {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="doodle-border bg-white p-8 max-w-2xl text-center relative overflow-hidden">
+        <!-- Confetti -->
+        <div id="confetti-container"></div>
+        <h1 class="text-6xl font-bold mb-6 rainbow-text wiggle">
+                happy birthday zypher
+</h1>
+<div class="doodle-border bg-yellow-100 p-6 mb-8">
+            <p class="text-2xl mb-4 wiggle">
+                hey zypher i know we dont talk much butttt
+            </p>
+            <p class="text-4xl font-bold text-pink-500 rainbow-text">
+                youre amazing
+            </p>
+</div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="doodle-border bg-blue-100 p-4">
+                <i data-feather="heart" class="w-12 h-12 mx-auto text-red-500 mb-2"></i>
+                <p class="text-xl">
+                    thanks for being my therapist when i needed it most
+</p>
+</div>
+            <div class="doodle-border bg-green-100 p-4">
+                <i data-feather="smile" class="w-12 h-12 mx-auto text-yellow-500 mb-2"></i>
+                <p class="text-xl">
+                    you are the best thing that happened to me
+</p>
+</div>
+        </div>
+        
+        <div class="doodle-border bg-purple-100 p-6">
+            <p class="text-2xl">
+                i hope your birthday is as cool as you are
+</p>
+            <p class="text-xl mt-2">
+                eat all the cake get all the presents and know that youre loved even when im not around
+</p>
+            <div class="mt-6 flex justify-center space-x-8">
+                <i data-feather="gift" class="w-12 h-12 text-pink-500"></i>
+                <i data-feather="cake" class="w-12 h-12 text-yellow-400"></i>
+                <i data-feather="star" class="w-12 h-12 text-purple-500"></i>
+</div>
+</div>
+        
+        <div class="mt-8">
+            <p class="text-lg text-pink-600 font-bold wiggle">
+                this website is 100% pure silly love because you deserve all the happiness in the world
+</p>
+</div>
+    </div>
+    
+    <script>
+        feather.replace();
+        
+        // Create confetti
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            confetti.style.left = `${x}%`;
+            confetti.style.top = `${y}%`;
+            
+            // Random color
+            const colors = ['#ff85a2', '#ffd166', '#06d6a0', '#118ab2', '#ef476f'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.backgroundColor = color;
+            
+            // Random size
+            const size = Math.random() * 10 + 5;
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            
+            // Random rotation
+            const rotation = Math.random() * 360;
+            confetti.style.transform = `rotate(${rotation}deg)`;
+            
+            container.appendChild(confetti);
+            
+            // Remove after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+        // Create confetti every 100ms for extra sparkle
+        setInterval(createConfetti, 100);
+
+        // Make everything wiggle on hover
+        document.querySelectorAll('.doodle-border').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.classList.add('animate-pulse');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('animate-pulse');
+            });
+        });
+</script>
+</body>
+</html>
